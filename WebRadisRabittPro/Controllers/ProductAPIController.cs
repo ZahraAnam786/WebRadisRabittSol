@@ -14,7 +14,7 @@ namespace WebRadisRabittSol.Controllers
         private ResponseDto _response;
         private readonly IRedisCacheService _cacheService;
 
-        public ProductAPIController(AppDBContext db, IRedisCacheService cacheService)
+        public ProductAPIController(AppDBContext  db, IRedisCacheService cacheService)
         {
             _db = db;
             _response = new ResponseDto();
