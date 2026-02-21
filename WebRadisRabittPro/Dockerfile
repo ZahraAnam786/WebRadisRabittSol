@@ -7,14 +7,11 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy only csproj for caching
-COPY *.csproj ./  # now Dockerfile is inside context, just copy csproj
+# Copy everything and restore
+COPY . .
 RUN dotnet restore
 
-# Copy all project files
-COPY . .
-
-WORKDIR /src
+# Publish
 RUN dotnet publish -c Release -o /app
 
 # ---- Final stage ----
