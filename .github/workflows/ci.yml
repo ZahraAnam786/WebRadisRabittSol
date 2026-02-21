@@ -51,7 +51,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker Image
-      run: docker build -t anamzahra786/webradisrabittpro:latest -f WebRedisRabittPro/Dockerfile WebRedisRabittPro
+      run: docker build -t anamzahra786/webradisrabittpro:latest -f WebRadisRabittPro/Dockerfile WebRadisRabittPro
 
 
     - name: Push Docker Image
