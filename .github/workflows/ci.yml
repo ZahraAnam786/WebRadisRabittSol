@@ -51,10 +51,10 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker Image
-      run: docker build -t yourdockerusername/yourapp:latest .
+      run: docker build -t anamzahra786/WebRadisRabittPro:latest .
 
     - name: Push Docker Image
-      run: docker push yourdockerusername/yourapp:latest
+      run: docker push anamzahra786/WebRadisRabittPro:latest
     # - name: Publish Artifacts
     #   uses: actions/upload-artifact@v4
     #   with:
