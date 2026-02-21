@@ -7,15 +7,14 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy only csproj first (better caching)
-COPY WebRadisRabittPro/*.csproj ./WebRadisRabittPro/
-RUN dotnet restore ./WebRadisRabittPro/WebRadisRabittPro.csproj
+# Copy only csproj for caching
+COPY *.csproj ./  # now Dockerfile is inside context, just copy csproj
+RUN dotnet restore
 
-# Copy all remaining project files
-COPY WebRadisRabittPro/. ./WebRadisRabittPro/
-WORKDIR /src/WebRadisRabittPro
+# Copy all project files
+COPY . .
 
-# Publish the project
+WORKDIR /src
 RUN dotnet publish -c Release -o /app
 
 # ---- Final stage ----
