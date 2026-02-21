@@ -8,13 +8,14 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy only csproj first (better caching)
-COPY WebRadisRabittPro/WebRadisRabittPro.csproj ./WebRadisRabittPro/
+COPY WebRadisRabittPro/*.csproj ./WebRadisRabittPro/
 RUN dotnet restore ./WebRadisRabittPro/WebRadisRabittPro.csproj
 
-# Copy remaining project files
+# Copy all remaining project files
 COPY WebRadisRabittPro/. ./WebRadisRabittPro/
 WORKDIR /src/WebRadisRabittPro
 
+# Publish the project
 RUN dotnet publish -c Release -o /app
 
 # ---- Final stage ----
