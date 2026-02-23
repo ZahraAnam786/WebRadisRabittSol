@@ -50,12 +50,12 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build Docker Image
-      run: docker build -t anamzahra786/webradisrabittpro:latest -f WebRadisRabittPro/Dockerfile WebRadisRabittPro
+    #- name: Build Docker Image
+    #  run: docker build -t anamzahra786/webradisrabittpro:latest -f WebRadisRabittPro/Dockerfile WebRadisRabittPro
 
 
-    - name: Push Docker Image
-      run: docker push anamzahra786/webradisrabittpro:latest
+  #  - name: Push Docker Image
+  #    run: docker push anamzahra786/webradisrabittpro:latest
     # - name: Publish Artifacts
     #   uses: actions/upload-artifact@v4
     #   with:
